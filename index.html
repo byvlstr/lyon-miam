@@ -3,7 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Lyon · Saveurs du Monde</title>
+<title>Lyon Saveurs — Restaurants du monde à Lyon par nationalité</title>
+<meta name="description" content="Découvrez tous les restaurants de Lyon classés par nationalité : japonais, italien, libanais, marocain, vietnamien et 40+ cuisines du monde. Carte interactive et données OpenStreetMap en temps réel.">
+<meta name="keywords" content="restaurant Lyon, cuisine du monde Lyon, restaurant japonais Lyon, restaurant libanais Lyon, restaurant marocain Lyon, restaurant vietnamien Lyon, restaurant italien Lyon, restaurant étranger Lyon, nationalité restaurant Lyon">
+<meta name="author" content="Lyon Saveurs">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lyonsaveurs.fr/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyonsaveurs.fr/">
+<meta property="og:title" content="Lyon Saveurs — Restaurants du monde à Lyon">
+<meta property="og:description" content="Explorez les restaurants de Lyon par nationalité sur une carte interactive. Plus de 40 cuisines du monde, données OpenStreetMap en temps réel.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Lyon Saveurs">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lyon Saveurs — Restaurants du monde à Lyon">
+<meta name="twitter:description" content="Carte interactive des restaurants de Lyon classés par nationalité. 40+ cuisines, données temps réel.">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Lyon Saveurs",
+      "url": "https://lyonsaveurs.fr/",
+      "description": "Application interactive recensant les restaurants de Lyon classés par nationalité culinaire. Données OpenStreetMap en temps réel.",
+      "applicationCategory": "FoodApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "inLanguage": "fr",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "about": {
+        "@type": "Thing",
+        "name": "Restaurants Lyon par nationalité",
+        "description": "Plus de 1800 restaurants, cafés et bars à Lyon classés selon leur nationalité culinaire : japonais, italien, marocain, libanais, vietnamien, thaïlandais, indien, chinois, turc, espagnol et plus de 40 nationalités représentées."
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "Restaurants de Lyon par nationalité",
+      "description": "Données des établissements de restauration de Lyon (restaurants, cafés, bars, fast-foods) avec leur nationalité culinaire, adresse, horaires et coordonnées GPS.",
+      "license": "https://opendatacommons.org/licenses/odbl/",
+      "creator": { "@type": "Organization", "name": "OpenStreetMap contributors" },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Lyon, France",
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.7640, "longitude": 4.8357 }
+      },
+      "keywords": ["restaurants Lyon", "cuisine monde", "nationalité", "gastronomie Lyon"]
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5563397793004019"
@@ -673,6 +728,27 @@ const CM = {
   uzbek:['Ouzbek','UZ'],
   // Swedish
   swedish:['Suédois','SE'], nordic:['Suédois','SE'],
+  scandinavian:['Suédois','SE'], norwegian:['Norvégien','NO'],
+  danish:['Danois','DK'], finnish:['Finlandais','FI'],
+  sudanese:['Soudanais','SD'], sudan:['Soudanais','SD'],
+  somalian:['Somalien','SO'], somali:['Somalien','SO'],
+  kenyan:['Kényan','KE'], kenya:['Kényan','KE'],
+  ugandan:['Ougandais','UG'], ugandan:['Ougandais','UG'],
+  tanzanian:['Tanzanien','TZ'], tanzania:['Tanzanien','TZ'],
+  malagasy:['Malgache','MG'], madagascar:['Malgache','MG'],
+  mauritian:['Mauricien','MU'], mauritius:['Mauricien','MU'],
+  reunion:['Réunionnais','RE'], réunionnais:['Réunionnais','RE'],
+  algerian_moroccan:['Maghrébin','MA'],
+  luxembourgian:['Luxembourgeois','LU'], luxembourgish:['Luxembourgeois','LU'],
+  dutch:['Néerlandais','NL'], netherlands:['Néerlandais','NL'],
+  austrian:['Autrichien','AT'], austria:['Autrichien','AT'],
+  hungarian:['Hongrois','HU'], hungary:['Hongrois','HU'],
+  czech:['Tchèque','CZ'], ukrainian:['Ukrainien','UA'],
+  romanian:['Roumain','RO'], romanian:['Roumain','RO'],
+  greek_cypriot:['Grec','GR'],
+  singaporean:['Singapourien','SG'], singapore:['Singapourien','SG'],
+  thai_vietnamese:['Thaïlandais','TH'],
+  chinese_thai:['Chinois','CN'],
   // Argentine
   argentine:['Argentin','AR'], argentinian:['Argentin','AR'],
   // Colombian
@@ -716,10 +792,44 @@ const CM = {
   armenien:['Arménien','AM'], georgien:['Géorgien','GE'],
   senegalais:['Sénégalais','SN'], ethiopien:['Éthiopien','ET'],
   algerien_tunisien:['Maghrébin','MA'],
-  // Veg/intl — try to guess from name context later
+  // Végétarien / régimes
   vegetarian:['Végétarien',null], vegan:['Végétalien',null],
+  organic:['Végétarien',null], healthy:['Végétarien',null],
+  // Fruits de mer
   seafood:['Fruits de mer',null], fish:['Fruits de mer',null],
+  sushi_and_seafood:['Fruits de mer',null],
+  // International / Fusion
   international:['International',null], fusion:['Fusion',null],
+  world:['International',null], global:['International',null],
+  // Tags OSM génériques qui ne sont PAS des nationalités
+  regional:['Français',null], french_regional:['Français',null],
+  french_creole:['Français',null], alsatian:['Français',null],
+  basque:['Français',null], breton:['Français',null],
+  savoyard:['Français',null], provencal:['Français',null],
+  // Types de plats génériques → regrouper dans International
+  pizza_pasta:['Italien','IT'],
+  grill:['International',null], barbecue_grill:['Américain','US'],
+  steak_house:['Américain','US'], steak:['Américain','US'],
+  sandwich:['International',null], burger_and_fries:['Américain','US'],
+  noodle:['Asiatique 🌏',null], noodles:['Asiatique 🌏',null],
+  dumpling:['Chinois','CN'], dumplings:['Chinois','CN'],
+  rice:['Asiatique 🌏',null],
+  coffee:['International',null], cafe:['International',null],
+  tea:['International',null], juice:['International',null],
+  ice_cream:['International',null], dessert:['International',null],
+  cake:['International',null], pastry:['International',null],
+  bakery:['Français',null],
+  crepes:['Français',null], waffle:['Belge','BE'],
+  // Autres tags fréquents dans OSM Lyon
+  couscous:['Marocain','MA'],
+  kebab_pizza:['Turc','TR'],
+  sushi_bar:['Japonais','JP'],
+  ramen_shop:['Japonais','JP'],
+  chinese_japanese:['Chinois','CN'],
+  asian_fusion:['Asiatique 🌏',null],
+  indo_chinese:['Indien','IN'],
+  south_indian:['Indien','IN'], north_indian:['Indien','IN'],
+  // Tout ce qui reste inconnu → Non renseigné (pas de nationalité parasite)
 };
 
 // ─── Continent / broad category fallback ───────────────────────────────────────
@@ -961,38 +1071,75 @@ async function fetchOverpass() {
 // PARSE OSM ELEMENTS
 // ═══════════════════════════════════════════════════
 function resolveNat(rawCuisine, name) {
-  // Try all semicolon-separated tags, not just the first
-  const tags = rawCuisine.split(';').map(t => t.trim().toLowerCase().replace(/[\s\-]/g,'_'));
-
-  for (const raw of tags) {
-    // 1. Direct lookup in CM table
-    if (CM[raw]) return CM[raw];
+  if (!rawCuisine) {
+    const g = guessFromName(name); return g || ['Non renseigné', null];
   }
+  // Normalisation agressive : espaces, tirets, underscores, accents courants
+  const normalize = t => t.trim().toLowerCase()
+    .replace(/[éè]/g,'e').replace(/[àâ]/g,'a').replace(/[ùû]/g,'u')
+    .replace(/[îï]/g,'i').replace(/[ôö]/g,'o').replace(/[\s\-\/]/g,'_')
+    .replace(/_+/g,'_');
+  const tags = rawCuisine.split(';').map(normalize);
 
+  // Catégories génériques qui ne doivent PAS primer sur une nationalité spécifique
+  const GENERIC = new Set([
+    'international','fusion','world','global','cafe','coffee','tea','juice',
+    'ice_cream','dessert','cake','pastry','bakery','sandwich','grill','steak',
+    'noodle','noodles','rice','vegetarian','vegan','organic','healthy',
+    'seafood','fish','regional','french_regional',
+  ]);
+
+  // Étape 1 : lookup direct — collecter TOUS les résultats, garder le plus spécifique
+  let bestResult = null;
+  let bestIsGeneric = true;
   for (const raw of tags) {
-    // 2. Broad category → try name-based hints first
+    if (CM[raw]) {
+      const [nat, iso] = CM[raw];
+      const isGeneric = GENERIC.has(raw) || iso === null;
+      // Préférer un résultat non-générique (nationalité réelle avec iso)
+      if (bestResult === null || (bestIsGeneric && !isGeneric)) {
+        bestResult = CM[raw];
+        bestIsGeneric = isGeneric;
+      }
+    }
+  }
+  if (bestResult && !bestIsGeneric) return bestResult; // nationalité réelle trouvée
+  // Si on n'a trouvé que du générique, continuer à chercher mieux
+
+  // Étape 2 : broad category → essayer les hints de nom d'abord
+  for (const raw of tags) {
     if (BROAD.has(raw)) {
       const nameResult = guessFromName(name);
       if (nameResult) return nameResult;
-      // Fallback: return continent label (iso=null → not on world map)
       const bc = BROAD_CONTINENT[raw];
       return [bc ? bc.label : 'International', null];
     }
   }
 
-  // 3. Partial key match in CM
+  // Étape 3 : stems (suffixes gentilés)
   for (const raw of tags) {
-    for (const [key, val] of Object.entries(CM)) {
-      if (raw.includes(key) || key.includes(raw)) return val;
+    if (raw.length < 5) continue;
+    const stems = [raw];
+    if (raw.endsWith('ese')) stems.push(raw.slice(0,-3));
+    if (raw.endsWith('ian')) stems.push(raw.slice(0,-3));
+    if (raw.endsWith('an'))  stems.push(raw.slice(0,-2));
+    if (raw.endsWith('ish')) stems.push(raw.slice(0,-3));
+    for (const stem of stems) {
+      for (const [key, val] of Object.entries(CM)) {
+        if (key.length < 4) continue;
+        if (stem === key || stem.startsWith(key) || key.startsWith(stem)) {
+          if (!GENERIC.has(key)) return val;
+        }
+      }
     }
   }
 
-  // 4. Name-based hints (restaurant name contains country clues)
+  // Étape 4 : hints sur le nom du restaurant
   const nameResult = guessFromName(name);
   if (nameResult) return nameResult;
 
-  // 5. Last resort: capitalise raw tag
-  return [cap(rawCuisine.split(';')[0].trim()), null];
+  // Étape 5 : retourner le résultat générique trouvé en étape 1, sinon Non renseigné
+  return bestResult || ['Non renseigné', null];
 }
 
 function guessFromName(name) {
@@ -1308,7 +1455,17 @@ function renderList(list) {
       <div class="state-sub">Essayez une autre nationalité ou modifiez votre recherche.</div>
     </div>`; return;
   }
-  c.innerHTML = list.map(r => {
+  const AD_CARD = `<div class="card" style="cursor:default;overflow:hidden;">
+    <ins class="adsbygoogle"
+      style="display:block;width:100%;min-height:74px;"
+      data-ad-client="ca-pub-5563397793004019"
+      data-ad-slot="auto"
+      data-ad-format="fluid"
+      data-ad-layout="in-article"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+  </div>`;
+
+  const cards = list.map(r => {
     const wl = r.website?`<a class="flink" href="${x(r.website)}" target="_blank" onclick="event.stopPropagation()">🌐 Site</a>`:'';
     const pl = r.phone?`<a class="flink" href="tel:${x(r.phone)}" onclick="event.stopPropagation()">📞 Tel.</a>`:'';
     const ml = `<a class="flink" href="https://www.openstreetmap.org/?mlat=${r.lat}&mlon=${r.lng}&zoom=17" target="_blank" onclick="event.stopPropagation()">🗺 Map</a>`;
@@ -1327,7 +1484,11 @@ function renderList(list) {
       </div>
       <div class="card-foot">${hrs}<div class="fsp"></div>${pl}${wl}${ml}</div>
     </div>`;
-  }).join('');
+  });
+
+  // Insérer la pub en 2e position (index 1)
+  if (cards.length > 1) cards.splice(1, 0, AD_CARD);
+  c.innerHTML = cards.join('');
 }
 
 // ═══════════════════════════════════════════════════
@@ -1459,6 +1620,13 @@ function setProgress(pct,lbl){
 // ═══════════════════════════════════════════════════
 // BOOT
 // ═══════════════════════════════════════════════════
+// Catégories exclues du compteur de nationalités réelles
+const NON_NAT = new Set([
+  'Non renseigné','International','Fusion',
+  'Végétarien','Végétalien','Fruits de mer',
+  'Asiatique 🌏','Africain 🌍','Latino 🌎','Caribéen 🌴',
+  'Méditerranéen 🌊','Europe Est 🏛','Moyen-Orient ☪️',
+]);
 async function init() {
   if (!map) {
     initMap();
@@ -1492,7 +1660,7 @@ async function init() {
     buildWorldLayer(geojson);
     buildChips();
 
-    const nats = Object.keys(natCounts);
+    const nats = Object.keys(natCounts).filter(n => !NON_NAT.has(n));
     document.getElementById('hTotal').textContent = allRestaurants.length;
     document.getElementById('hNat').textContent = nats.length;
     // Mobile status bar
