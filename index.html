@@ -63,7 +63,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5563397793004019"
      crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- topojson-client embedded inline — works from file:// -->
 <script>// https://github.com/topojson/topojson-client v3.1.0 Copyright 2019 Mike Bostock
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e=e||self).topojson=e.topojson||{})}(this,function(e){"use strict";function t(e){return e}function r(e){if(null==e)return t;var r,n,o=e.scale[0],a=e.scale[1],i=e.translate[0],c=e.translate[1];return function(e,t){t||(r=n=0);var u=2,f=e.length,s=new Array(f);for(s[0]=(r+=e[0])*o+i,s[1]=(n+=e[1])*a+c;u<f;)s[u]=e[u],++u;return s}}function n(e){var t,n=r(e.transform),o=1/0,a=o,i=-o,c=-o;function u(e){(e=n(e))[0]<o&&(o=e[0]),e[0]>i&&(i=e[0]),e[1]<a&&(a=e[1]),e[1]>c&&(c=e[1])}function f(e){switch(e.type){case"GeometryCollection":e.geometries.forEach(f);break;case"Point":u(e.coordinates);break;case"MultiPoint":e.coordinates.forEach(u)}}for(t in e.arcs.forEach(function(e){for(var t,r=-1,u=e.length;++r<u;)(t=n(e[r],r))[0]<o&&(o=t[0]),t[0]>i&&(i=t[0]),t[1]<a&&(a=t[1]),t[1]>c&&(c=t[1])}),e.objects)f(e.objects[t]);return[o,a,i,c]}function o(e,t){var r=t.id,n=t.bbox,o=null==t.properties?{}:t.properties,i=a(e,t);return null==r&&null==n?{type:"Feature",properties:o,geometry:i}:null==n?{type:"Feature",id:r,properties:o,geometry:i}:{type:"Feature",id:r,bbox:n,properties:o,geometry:i}}function a(e,t){var n=r(e.transform),o=e.arcs;function a(e,t){t.length&&t.pop();for(var r=o[e<0?~e:e],a=0,i=r.length;a<i;++a)t.push(n(r[a],a));e<0&&function(e,t){for(var r,n=e.length,o=n-t;o<--n;)r=e[o],e[o++]=e[n],e[n]=r}(t,i)}function i(e){return n(e)}function c(e){for(var t=[],r=0,n=e.length;r<n;++r)a(e[r],t);return t.length<2&&t.push(t[0]),t}function u(e){for(var t=c(e);t.length<4;)t.push(t[0]);return t}function f(e){return e.map(u)}return function e(t){var r,n=t.type;switch(n){case"GeometryCollection":return{type:n,geometries:t.geometries.map(e)};case"Point":r=i(t.coordinates);break;case"MultiPoint":r=t.coordinates.map(i);break;case"LineString":r=c(t.arcs);break;case"MultiLineString":r=t.arcs.map(c);break;case"Polygon":r=f(t.arcs);break;case"MultiPolygon":r=t.arcs.map(f);break;default:return null}return{type:n,coordinates:r}}(t)}function i(e,t){var r={},n={},o={},a=[],i=-1;function c(e,t){for(var n in e){var o=e[n];delete t[o.start],delete o.start,delete o.end,o.forEach(function(e){r[e<0?~e:e]=1}),a.push(o)}}return t.forEach(function(r,n){var o,a=e.arcs[r<0?~r:r];a.length<3&&!a[1][0]&&!a[1][1]&&(o=t[++i],t[i]=r,t[n]=o)}),t.forEach(function(t){var r,a,i=function(t){var r,n=e.arcs[t<0?~t:t],o=n[0];e.transform?(r=[0,0],n.forEach(function(e){r[0]+=e[0],r[1]+=e[1]})):r=n[n.length-1];return t<0?[r,o]:[o,r]}(t),c=i[0],u=i[1];if(r=o[c])if(delete o[r.end],r.push(t),r.end=u,a=n[u]){delete n[a.start];var f=a===r?r:r.concat(a);n[f.start=r.start]=o[f.end=a.end]=f}else n[r.start]=o[r.end]=r;else if(r=n[u])if(delete n[r.start],r.unshift(t),r.start=c,a=o[c]){delete o[a.end];var s=a===r?r:a.concat(r);n[s.start=a.start]=o[s.end=r.end]=s}else n[r.start]=o[r.end]=r;else n[(r=[t]).start=c]=o[r.end=u]=r}),c(o,n),c(n,o),t.forEach(function(e){r[e<0?~e:e]||a.push([e])}),a}function c(e,t,r){var n,o,a;if(arguments.length>1)n=function(e,t,r){var n,o=[],a=[];function i(e){var t=e<0?~e:e;(a[t]||(a[t]=[])).push({i:e,g:n})}function c(e){e.forEach(i)}function u(e){e.forEach(c)}return function e(t){switch(n=t,t.type){case"GeometryCollection":t.geometries.forEach(e);break;case"LineString":c(t.arcs);break;case"MultiLineString":case"Polygon":u(t.arcs);break;case"MultiPolygon":!function(e){e.forEach(u)}(t.arcs)}}(t),a.forEach(null==r?function(e){o.push(e[0].i)}:function(e){r(e[0].g,e[e.length-1].g)&&o.push(e[0].i)}),o}(0,t,r);else for(o=0,n=new Array(a=e.arcs.length);o<a;++o)n[o]=o;return{type:"MultiLineString",arcs:i(e,n)}}function u(e,t){var r={},n=[],o=[];function c(e){e.forEach(function(t){t.forEach(function(t){(r[t=t<0?~t:t]||(r[t]=[])).push(e)})}),n.push(e)}function u(t){return function(e){for(var t,r=-1,n=e.length,o=e[n-1],a=0;++r<n;)t=o,o=e[r],a+=t[0]*o[1]-t[1]*o[0];return Math.abs(a)}(a(e,{type:"Polygon",arcs:[t]}).coordinates[0])}return t.forEach(function e(t){switch(t.type){case"GeometryCollection":t.geometries.forEach(e);break;case"Polygon":c(t.arcs);break;case"MultiPolygon":t.arcs.forEach(c)}}),n.forEach(function(e){if(!e._){var t=[],n=[e];for(e._=1,o.push(t);e=n.pop();)t.push(e),e.forEach(function(e){e.forEach(function(e){r[e<0?~e:e].forEach(function(e){e._||(e._=1,n.push(e))})})})}}),n.forEach(function(e){delete e._}),{type:"MultiPolygon",arcs:o.map(function(t){var n,o=[];if(t.forEach(function(e){e.forEach(function(e){e.forEach(function(e){r[e<0?~e:e].length<2&&o.push(e)})})}),(n=(o=i(e,o)).length)>1)for(var a,c,f=1,s=u(o[0]);f<n;++f)(a=u(o[f]))>s&&(c=o[0],o[0]=o[f],o[f]=c,s=a);return o}).filter(function(e){return e.length>0})}}function f(e,t){for(var r=0,n=e.length;r<n;){var o=r+n>>>1;e[o]<t?r=o+1:n=o}return r}function s(e){if(null==e)return t;var r,n,o=e.scale[0],a=e.scale[1],i=e.translate[0],c=e.translate[1];return function(e,t){t||(r=n=0);var u=2,f=e.length,s=new Array(f),l=Math.round((e[0]-i)/o),h=Math.round((e[1]-c)/a);for(s[0]=l-r,r=l,s[1]=h-n,n=h;u<f;)s[u]=e[u],++u;return s}}e.bbox=n,e.feature=function(e,t){return"string"==typeof t&&(t=e.objects[t]),"GeometryCollection"===t.type?{type:"FeatureCollection",features:t.geometries.map(function(t){return o(e,t)})}:o(e,t)},e.merge=function(e){return a(e,u.apply(this,arguments))},e.mergeArcs=u,e.mesh=function(e){return a(e,c.apply(this,arguments))},e.meshArcs=c,e.neighbors=function(e){var t={},r=e.map(function(){return[]});function n(e,r){e.forEach(function(e){e<0&&(e=~e);var n=t[e];n?n.push(r):t[e]=[r]})}function o(e,t){e.forEach(function(e){n(e,t)})}var a={LineString:n,MultiLineString:o,Polygon:o,MultiPolygon:function(e,t){e.forEach(function(e){o(e,t)})}};for(var i in e.forEach(function e(t,r){"GeometryCollection"===t.type?t.geometries.forEach(function(t){e(t,r)}):t.type in a&&a[t.type](t.arcs,r)}),t)for(var c=t[i],u=c.length,s=0;s<u;++s)for(var l=s+1;l<u;++l){var h,p=c[s],g=c[l];(h=r[p])[i=f(h,g)]!==g&&h.splice(i,0,g),(h=r[g])[i=f(h,p)]!==p&&h.splice(i,0,p)}return r},e.quantize=function(e,t){if(e.transform)throw new Error("already quantized");if(t&&t.scale)u=e.bbox;else{if(!((r=Math.floor(t))>=2))throw new Error("n must be ≥2");var r,o=(u=e.bbox||n(e))[0],a=u[1],i=u[2],c=u[3];t={scale:[i-o?(i-o)/(r-1):1,c-a?(c-a)/(r-1):1],translate:[o,a]}}var u,f,l=s(t),h=e.objects,p={};function g(e){return l(e)}function y(e){var t;switch(e.type){case"GeometryCollection":t={type:"GeometryCollection",geometries:e.geometries.map(y)};break;case"Point":t={type:"Point",coordinates:g(e.coordinates)};break;case"MultiPoint":t={type:"MultiPoint",coordinates:e.coordinates.map(g)};break;default:return e}return null!=e.id&&(t.id=e.id),null!=e.bbox&&(t.bbox=e.bbox),null!=e.properties&&(t.properties=e.properties),t}for(f in h)p[f]=y(h[f]);return{type:"Topology",bbox:u,transform:t,objects:p,arcs:e.arcs.map(function(e){var t,r=0,n=1,o=e.length,a=new Array(o);for(a[0]=l(e[0],0);++r<o;)((t=l(e[r],r))[0]||t[1])&&(a[n++]=t);return 1===n&&(a[n++]=[0,0]),a.length=n,a})}},e.transform=r,e.untransform=s,Object.defineProperty(e,"__esModule",{value:!0})});</script>
@@ -72,7 +72,7 @@
   --bg:#f7f5f2; --surface:#fff; --surface2:#f2f0ed;
   --border:#e4e1db; --border2:#d0ccc5;
   --accent:#c0392b; --accent-light:#fdf0ee;
-  --text:#1a1917; --text-muted:#7a756e; --text-light:#a09b93;
+  --text:#142752; --text-muted:#7a756e; --text-light:#a09b93;
   --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
   --shadow-lg:0 4px 24px rgba(0,0,0,.13);
   --r:10px; --rs:6px;
@@ -81,7 +81,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);
+body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--text);
   display:flex;flex-direction:column;overflow:hidden;}
 
 /* HEADER */
@@ -89,7 +89,7 @@ header{display:flex;align-items:center;justify-content:space-between;
   padding:0 24px;height:52px;background:var(--surface);
   border-bottom:1px solid var(--border);flex-shrink:0;z-index:1000;position:relative;}
 .logo{display:flex;align-items:baseline;gap:8px;}
-.logo-t{font-family:'Lora',serif;font-size:1.1rem;letter-spacing:-.01em;}
+.logo-t{font-family:'Quicksand',sans-serif;font-size:1.1rem;letter-spacing:-.01em;}
 .logo-sep{color:var(--border2);}
 .logo-s{font-size:.7rem;color:var(--text-muted);letter-spacing:.07em;text-transform:uppercase;}
 .hright{display:flex;align-items:center;gap:18px;}
@@ -129,7 +129,7 @@ header{display:flex;align-items:center;justify-content:space-between;
   border-radius:8px;padding:7px 12px;
   box-shadow:var(--shadow);font-size:.78rem;display:none;
   white-space:nowrap;}
-.country-tip-name{font-family:'Lora',serif;font-size:.85rem;margin-bottom:2px;}
+.country-tip-name{font-family:'Quicksand',sans-serif;font-size:.85rem;margin-bottom:2px;}
 .country-tip-count{color:var(--accent);font-weight:600;}
 
 /* PANEL */
@@ -139,20 +139,20 @@ header{display:flex;align-items:center;justify-content:space-between;
 .ptrow{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 8px;}
 .cinfo{display:flex;align-items:center;gap:9px;}
 .cflag{font-size:1.5rem;line-height:1;}
-.clabel{font-family:'Lora',serif;font-size:.95rem;}
+.clabel{font-family:'Quicksand',sans-serif;font-size:.95rem;}
 .ccount{font-size:.72rem;color:var(--text-muted);margin-top:1px;}
-.clear-btn{font-size:.7rem;font-family:'DM Sans',sans-serif;color:var(--text-muted);
+.clear-btn{font-size:.7rem;font-family:'Quicksand',sans-serif;color:var(--text-muted);
   background:none;border:1px solid var(--border2);padding:4px 9px;
   border-radius:20px;cursor:pointer;transition:all .15s;display:none;}
 .clear-btn:hover{color:var(--accent);border-color:var(--accent);}
 
 .srow{display:flex;gap:7px;padding:0 16px 10px;}
-.sinput{flex:1;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);
+.sinput{flex:1;font-family:'Quicksand',sans-serif;font-size:.8rem;color:var(--text);
   background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);
   padding:6px 11px;outline:none;transition:border-color .15s;}
 .sinput:focus{border-color:var(--border2);}
 .sinput::placeholder{color:var(--text-light);}
-.sselect{font-family:'DM Sans',sans-serif;font-size:.76rem;color:var(--text);
+.sselect{font-family:'Quicksand',sans-serif;font-size:.76rem;color:var(--text);
   background:var(--surface2);border:1px solid var(--border);border-radius:var(--rs);
   padding:6px 9px;outline:none;cursor:pointer;}
 
@@ -180,7 +180,7 @@ header{display:flex;align-items:center;justify-content:space-between;
   font-size:1.6rem;display:flex;align-items:center;justify-content:center;
   border-right:1px solid var(--border);}
 .card-body{padding:8px 11px;flex:1;min-width:0;}
-.card-name{font-family:'Lora',serif;font-size:.86rem;white-space:nowrap;
+.card-name{font-family:'Quicksand',sans-serif;font-size:.86rem;white-space:nowrap;
   overflow:hidden;text-overflow:ellipsis;color:var(--text);margin-bottom:4px;}
 .card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;}
 .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;padding:2px 6px;
@@ -203,7 +203,7 @@ header{display:flex;align-items:center;justify-content:space-between;
 .statebox{display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:220px;gap:11px;padding:32px;text-align:center;}
 .state-ico{font-size:2.2rem;opacity:.25;}
-.state-title{font-family:'Lora',serif;font-size:.95rem;}
+.state-title{font-family:'Quicksand',sans-serif;font-size:.95rem;}
 .state-sub{font-size:.76rem;color:var(--text-muted);line-height:1.6;max-width:260px;}
 .dots{display:flex;gap:5px;}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
@@ -227,7 +227,7 @@ header{display:flex;align-items:center;justify-content:space-between;
 .mhead{display:flex;align-items:flex-start;gap:12px;padding:18px 18px 14px;
   border-bottom:1px solid var(--border);}
 .mico{font-size:2rem;line-height:1;flex-shrink:0;}
-.mname{font-family:'Lora',serif;font-size:1.15rem;margin-bottom:3px;}
+.mname{font-family:'Quicksand',sans-serif;font-size:1.15rem;margin-bottom:3px;}
 .msub{font-size:.78rem;color:var(--text-muted);}
 .mclose{margin-left:auto;flex-shrink:0;background:none;border:1px solid var(--border);
   width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.9rem;
@@ -243,7 +243,7 @@ header{display:flex;align-items:center;justify-content:space-between;
 .mval a:hover{text-decoration:underline;}
 .mfoot{display:flex;gap:7px;padding:12px 18px;border-top:1px solid var(--border);}
 .mbtn{flex:1;padding:8px;border-radius:8px;text-align:center;font-size:.76rem;
-  font-family:'DM Sans',sans-serif;text-decoration:none;cursor:pointer;
+  font-family:'Quicksand',sans-serif;text-decoration:none;cursor:pointer;
   transition:all .15s;border:1px solid var(--border);}
 .mbtn-p{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500;}
 .mbtn-p:hover{background:#a93226;}
@@ -256,7 +256,7 @@ header{display:flex;align-items:center;justify-content:space-between;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 3px 8px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Quicksand',sans-serif;
   font-size: .72rem;
   color: var(--text);
   box-shadow: var(--shadow);
@@ -407,7 +407,7 @@ header{display:flex;align-items:center;justify-content:space-between;
   background:#f7f5f2;
   display:flex;flex-direction:column;
   overflow-y:auto;
-  font-family:'DM Sans',sans-serif;
+  font-family:'Quicksand',sans-serif;
 ">
 
   <!-- Zone visible sans scroll : titre + pub + CTA -->
@@ -426,15 +426,30 @@ header{display:flex;align-items:center;justify-content:space-between;
         letter-spacing:.15em;color:#a09b93;margin-bottom:8px;
       ">Saveurs du monde</div>
       <h1 style="
-        font-family:'Lora',serif;
+        font-family:'Quicksand',sans-serif;
         font-size:clamp(2.4rem,7vw,4rem);
-        color:#1a1917;line-height:1.05;
+        color:#142752;line-height:1.05;
         margin:0 0 12px;letter-spacing:-.03em;
       ">Lyon Saveurs</h1>
       <p style="
         font-size:clamp(.85rem,1.5vw,1rem);
         color:#7a756e;max-width:320px;margin:0 auto;line-height:1.5;
+        margin-bottom:16px;
       ">Découvrez tous les restaurants de Lyon classés par nationalité</p>
+      <div style="
+        display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+        margin-top:4px;
+      ">
+        <div style="text-align:center;">
+          <div style="font-family:'Quicksand',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;color:#142752;line-height:1;">3 500<span style="color:#c0392b">+</span></div>
+          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#a09b93;margin-top:2px;">restaurants</div>
+        </div>
+        <div style="width:1px;background:#e4e1db;align-self:stretch;"></div>
+        <div style="text-align:center;">
+          <div style="font-family:'Quicksand',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;color:#142752;line-height:1;">50<span style="color:#c0392b">+</span></div>
+          <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#a09b93;margin-top:2px;">nationalités</div>
+        </div>
+      </div>
     </div>
 
     <!-- Espace publicitaire -->
@@ -460,7 +475,7 @@ header{display:flex;align-items:center;justify-content:space-between;
       background:#c0392b;color:#fff;
       border:none;border-radius:50px;
       padding:15px 40px;
-      font-family:'DM Sans',sans-serif;
+      font-family:'Quicksand',sans-serif;
       font-size:1rem;font-weight:600;
       letter-spacing:.02em;
       cursor:pointer;
@@ -484,32 +499,33 @@ header{display:flex;align-items:center;justify-content:space-between;
     max-width:600px;margin:0 auto;
     padding:40px 24px 80px;
   ">
-    <h2 style="font-family:'Lora',serif;font-size:1.4rem;color:#1a1917;margin:0 0 12px;">
+    <h2 style="font-family:'Quicksand',sans-serif;font-size:1.4rem;color:#142752;margin:0 0 12px;">
       Les restaurants du monde à Lyon
     </h2>
     <p style="color:#7a756e;font-size:.9rem;line-height:1.7;margin-bottom:20px;">
-      Lyon est une ville réputée pour sa gastronomie, mais sa scène culinaire va bien au-delà de la cuisine lyonnaise traditionnelle. 
+      La métropole de Lyon compte plus de <strong style="color:#142752">3 500 restaurants</strong> représentant 
+      <strong style="color:#142752">50+ nationalités</strong> différentes. 
       Des bouchons du Vieux-Lyon aux restaurants japonais de la Presqu'île, en passant par les tables marocaines, libanaises, 
       vietnamiennes ou éthiopiennes — la ville offre un tour du monde gastronomique complet.
     </p>
-    <h3 style="font-family:'Lora',serif;font-size:1.1rem;color:#1a1917;margin:0 0 8px;">
+    <h3 style="font-family:'Quicksand',sans-serif;font-size:1.1rem;color:#142752;margin:0 0 8px;">
       Une carte interactive par nationalité
     </h3>
     <p style="color:#7a756e;font-size:.9rem;line-height:1.7;margin-bottom:20px;">
       Cette application recense tous les établissements de restauration de Lyon (restaurants, cafés, fast-foods, bars) 
-      en les classant selon leur nationalité culinaire. Elle utilise les données libres d'<strong style="color:#1a1917">OpenStreetMap</strong> 
+      en les classant selon leur nationalité culinaire. Elle utilise les données libres d'<strong style="color:#142752">OpenStreetMap</strong> 
       mises à jour en temps réel via l'API Overpass.
     </p>
-    <h3 style="font-family:'Lora',serif;font-size:1.1rem;color:#1a1917;margin:0 0 8px;">
+    <h3 style="font-family:'Quicksand',sans-serif;font-size:1.1rem;color:#142752;margin:0 0 8px;">
       Comment utiliser l'application
     </h3>
     <ul style="color:#7a756e;font-size:.9rem;line-height:1.8;padding-left:20px;margin-bottom:20px;">
-      <li>Cliquez sur un <strong style="color:#1a1917">pays sur la carte monde</strong> pour filtrer les restaurants de cette nationalité</li>
-      <li>Utilisez la <strong style="color:#1a1917">barre de recherche</strong> pour trouver un établissement par nom ou adresse</li>
-      <li>Accédez aux <strong style="color:#1a1917">informations pratiques</strong> : adresse, téléphone, horaires, site web</li>
+      <li>Cliquez sur un <strong style="color:#142752">pays sur la carte monde</strong> pour filtrer les restaurants de cette nationalité</li>
+      <li>Utilisez la <strong style="color:#142752">barre de recherche</strong> pour trouver un établissement par nom ou adresse</li>
+      <li>Accédez aux <strong style="color:#142752">informations pratiques</strong> : adresse, téléphone, horaires, site web</li>
       <li>Naviguez directement vers l'établissement via OpenStreetMap ou Google Maps</li>
     </ul>
-    <h3 style="font-family:'Lora',serif;font-size:1.1rem;color:#1a1917;margin:0 0 8px;">
+    <h3 style="font-family:'Quicksand',sans-serif;font-size:1.1rem;color:#142752;margin:0 0 8px;">
       Nationalités représentées à Lyon
     </h3>
     <p style="color:#7a756e;font-size:.9rem;line-height:1.7;margin-bottom:20px;">
@@ -520,7 +536,7 @@ header{display:flex;align-items:center;justify-content:space-between;
     <div style="text-align:center;margin-top:32px;">
       <button onclick="enterApp()" style="
         background:#c0392b;color:#fff;border:none;border-radius:50px;
-        padding:13px 32px;font-family:'DM Sans',sans-serif;
+        padding:13px 32px;font-family:'Quicksand',sans-serif;
         font-size:.9rem;font-weight:600;cursor:pointer;
         box-shadow:0 4px 16px rgba(192,57,43,.3);
       ">Explorer la carte →</button>
@@ -554,7 +570,7 @@ header{display:flex;align-items:center;justify-content:space-between;
       <div style="width:8px;height:8px;border-radius:50%;background:#c0392b;animation:db 1s ease-in-out .15s infinite;"></div>
       <div style="width:8px;height:8px;border-radius:50%;background:#c0392b;animation:db 1s ease-in-out .3s infinite;"></div>
     </div>
-    <div style="font-family:'Lora',serif;font-size:.95rem;color:#1a1917;">Retour à la carte monde…</div>
+    <div style="font-family:'Quicksand',sans-serif;font-size:.95rem;color:#142752;">Retour à la carte monde…</div>
     <div style="font-size:.72rem;color:#a09b93;">🌍</div>
   </div>
 </div>
@@ -1307,6 +1323,28 @@ const ISO_NUM_TO_A2 = {
   768:'TG',788:'TN',792:'TR',800:'UG',804:'UA',784:'AE',826:'GB',840:'US',
   858:'UY',860:'UZ',862:'VE',704:'VN',887:'YE',894:'ZM',716:'ZW',
   12:'DZ',288:'GH',404:'KE',566:'NG',710:'ZA',158:'TW',218:'EC',170:'CO',
+  // Pays manquants — absents de world-atlas 110m mais présents dans CM
+  384:'CI',  // Côte d'Ivoire
+  51:'AM',   // Arménie
+  268:'GE',  // Géorgie
+  702:'SG',  // Singapour
+  480:'MU',  // Maurice
+  638:'RE',  // Réunion
+  188:'CR',  // Costa Rica
+  422:'LB',  // Liban (doublon sécurité)
+  792:'TR',  // Turquie (doublon sécurité)
+  760:'SY',  // Syrie
+  332:'HT',  // Haïti
+  214:'DO',  // Rép. Dominicaine
+  320:'GT',  // Guatemala
+  340:'HN',  // Honduras
+  222:'SV',  // Salvador
+  558:'NI',  // Nicaragua
+  591:'PA',  // Panama
+  32:'AR',   // Argentine
+  598:'PG',  // Papouasie
+  894:'ZM',  // Zambie
+  716:'ZW',  // Zimbabwe
 };
 function isoNumToA2(numId) {
   return ISO_NUM_TO_A2[parseInt(numId)] || '';
@@ -1685,7 +1723,7 @@ async function init() {
       <div class="state-ico">⚠️</div>
       <div class="state-title">Erreur de chargement</div>
       <div class="state-sub">${x(err.message)}<br><br>
-        <button onclick="init()" style="font-family:'DM Sans',sans-serif;font-size:.8rem;
+        <button onclick="init()" style="font-family:'Quicksand',sans-serif;font-size:.8rem;
           padding:8px 18px;border-radius:6px;cursor:pointer;
           background:var(--accent);color:#fff;border:none;margin-top:4px">↻ Réessayer</button>
       </div>
