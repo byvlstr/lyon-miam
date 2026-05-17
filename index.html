@@ -695,6 +695,27 @@ const CM = {
   nigerian:['Nigérian','NG'], nigeria:['Nigérian','NG'],
   rwandan:['Rwandais','RW'], rwanda:['Rwandais','RW'],
   togolese:['Togolais','TG'], togo:['Togolais','TG'],
+  egyptian:['Égyptien','EG'], egypt:['Égyptien','EG'], egyptien:['Égyptien','EG'],
+  libyan:['Libyen','LY'], libyen:['Libyen','LY'],
+  sudanese:['Soudanais','SD'], sudan:['Soudanais','SD'],
+  somalian:['Somalien','SO'], somali:['Somalien','SO'],
+  kenyan:['Kényan','KE'], kenya:['Kényan','KE'],
+  ugandan:['Ougandais','UG'],
+  tanzanian:['Tanzanien','TZ'], tanzania:['Tanzanien','TZ'],
+  malagasy:['Malgache','MG'], madagascar:['Malgache','MG'],
+  mauritian:['Mauricien','MU'], mauritius:['Mauricien','MU'],
+  reunion:['Réunionnais','RE'], reunionnais:['Réunionnais','RE'],
+  beninese:['Béninois','BJ'], benin:['Béninois','BJ'],
+  burkinabe:['Burkinabé','BF'],
+  guinean:['Guinéen','GN'], guinea:['Guinéen','GN'], guineen:['Guinéen','GN'],
+  bissau_guinean:['Guinéen','GN'], equatorial_guinean:['Guinéen','GN'],
+  sierra_leonean:['Sierra Léonais','SL'], liberian:['Libérien','LR'],
+  gambian:['Gambien','GM'], mauritanian:['Mauritanien','MR'],
+  nigerien:['Nigérien','NE'], niger:['Nigérien','NE'],
+  chadian:['Tchadien','TD'], chad:['Tchadien','TD'],
+  angolan:['Angolais','AO'], zambian:['Zambien','ZM'],
+  zimbabwean:['Zimbabwéen','ZW'], mozambican:['Mozambicain','MZ'],
+  namibian:['Namibien','NA'], botswanan:['Botswanais','BW'],
   // Mexican
   mexican:['Mexicain','MX'], tex_mex:['Mexicain','MX'],
   // Spanish
@@ -912,6 +933,14 @@ const NAME_HINTS = [
   [/\b(cambodg|khmer|phnom|cambodia)\b/i, ['Cambodgien','KH']],
   [/\b(laos|laotien|vientiane)\b/i, ['Laotien','LA']],
   [/\b(birman|myanmar|rangoon|yangon)\b/i, ['Birman','MM']],
+  [/\b(egypt|egypte|égypte|caire|cairo|pharaon|alexandrie|alexandria)\b/i, ['Égyptien','EG']],
+  [/\b(libye|lybie|libyen|tripoli|benghazi)\b/i, ['Libyen','LY']],
+  [/\b(nairobi|kenya|kényan)\b/i, ['Kényan','KE']],
+  [/\b(conakry|guinée|guinea|guinean)\b/i, ['Guinéen','GN']],
+  [/\b(freetown|sierra.?leone)\b/i, ['Sierra Léonais','SL']],
+  [/\b(monrovia|liberia|liberian)\b/i, ['Libérien','LR']],
+  [/\b(banjul|gambia|gambian)\b/i, ['Gambien','GM']],
+  [/\b(dar.es.salaam|tanzanie|tanzania)\b/i, ['Tanzanien','TZ']],
 ];
 
 const EMOJI = {
@@ -1325,6 +1354,25 @@ const ISO_NUM_TO_A2 = {
   12:'DZ',288:'GH',404:'KE',566:'NG',710:'ZA',158:'TW',218:'EC',170:'CO',
   // Pays manquants — absents de world-atlas 110m mais présents dans CM
   384:'CI',  // Côte d'Ivoire
+  818:'EG',  // Égypte (sécurité — déjà présent mais confirme)
+  434:'LY',  // Libye
+  834:'TZ',  // Tanzanie
+  800:'UG',  // Ouganda (déjà)
+  204:'BJ',  // Bénin
+  854:'BF',  // Burkina Faso
+  324:'GN',  // Guinée
+  694:'SL',  // Sierra Leone
+  430:'LR',  // Liberia
+  270:'GM',  // Gambie
+  478:'MR',  // Mauritanie
+  562:'NE',  // Niger
+  148:'TD',  // Tchad
+  24:'AO',   // Angola
+  894:'ZM',  // Zambie
+  716:'ZW',  // Zimbabwe
+  508:'MZ',  // Mozambique
+  516:'NA',  // Namibie
+  72:'BW',   // Botswana
   51:'AM',   // Arménie
   268:'GE',  // Géorgie
   702:'SG',  // Singapour
