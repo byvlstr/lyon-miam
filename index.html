@@ -452,23 +452,7 @@ header{display:flex;align-items:center;justify-content:space-between;
       </div>
     </div>
 
-    <!-- Espace publicitaire -->
-    <div style="
-      width:100%;max-width:420px;
-      margin:clamp(20px,4vw,36px) auto;
-      border-radius:12px;
-      overflow:hidden;
-      height:clamp(280px,45vw,380px);
-      display:flex;align-items:center;justify-content:center;
-    ">
-      <ins class="adsbygoogle"
-           style="display:block;width:100%;height:100%;"
-           data-ad-client="ca-pub-5563397793004019"
-           data-ad-slot="auto"
-           data-ad-format="rectangle"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+
 
     <!-- Bouton CTA -->
     <button onclick="enterApp()" style="
@@ -481,7 +465,8 @@ header{display:flex;align-items:center;justify-content:space-between;
       cursor:pointer;
       box-shadow:0 4px 20px rgba(192,57,43,.35);
       transition:all .15s;
-      margin-bottom:16px;
+      margin-top:clamp(28px,6vw,48px);
+      margin-bottom:14px;
     "
     onmouseover="this.style.background='#a93226'"
     onmouseout="this.style.background='#c0392b'"
@@ -745,6 +730,7 @@ const CM = {
   bangladeshi:['Bangladais','BD'],
   // British
   british:['Britannique','GB'], fish_and_chips:['Britannique','GB'],
+  irish:['Irlandais','IE'], ireland:['Irlandais','IE'],
   // German
   german:['Allemand','DE'],
   // Belgian
@@ -938,6 +924,7 @@ const NAME_HINTS = [
   [/\b(nairobi|kenya|kényan)\b/i, ['Kényan','KE']],
   [/\b(conakry|guinée|guinea|guinean)\b/i, ['Guinéen','GN']],
   [/\b(freetown|sierra.?leone)\b/i, ['Sierra Léonais','SL']],
+  [/\b(ireland|irish|dublin|irl)\b/i, ['Irlandais','IE']],
   [/\b(monrovia|liberia|liberian)\b/i, ['Libérien','LR']],
   [/\b(banjul|gambia|gambian)\b/i, ['Gambien','GM']],
   [/\b(dar.es.salaam|tanzanie|tanzania)\b/i, ['Tanzanien','TZ']],
@@ -951,7 +938,7 @@ const EMOJI = {
   Éthiopien:'🫓',Sénégalais:'🌍',Camerounais:'🌍',Ivoirien:'🌍',Africain:'🌍',
   Caribéen:'🌴', Cubain:'🇨🇺', Ghanéen:'🇬🇭', Malien:'🇲🇱', Congolais:'🇨🇩', Nigérian:'🇳🇬', Rwandais:'🇷🇼', Togolais:'🇹🇬', Cubain:'🌴', Ghanéen:'🌍', Malien:'🌍', Congolais:'🌍', Nigérian:'🌍', Rwandais:'🌍', Togolais:'🌍',Portugais:'🐟',Arménien:'🫙',Géorgien:'🧀',Ouzbek:'🍢',
   Pakistanais:'🍛',Bangladais:'🍛',Népalais:'🏔',Asiatique:'🥢',
-  Britannique:'🫖',Allemand:'🍺',Belge:'🍟',Suisse:'🧀',Polonais:'🥟',
+  Britannique:'🫖', Irlandais:'🍺',Allemand:'🍺',Belge:'🍟',Suisse:'🧀',Polonais:'🥟',
   Russe:'🥗',Indonésien:'🍚',Malaisien:'🍜',Philippin:'🍲',
   'Fruits de mer':'🦞',Végétarien:'🥗',Végétalien:'🌿',
   International:'🌍',Fusion:'🍽️',Syrien:'🧆','Non renseigné':'❓',
@@ -968,7 +955,7 @@ const FLAG_EMOJI = {
   Éthiopien:'🇪🇹',Sénégalais:'🇸🇳',Camerounais:'🇨🇲',Ivoirien:'🇨🇮',Africain:'🌍',
   Caribéen:'🌴', Cubain:'🌴', Ghanéen:'🌍', Malien:'🌍', Congolais:'🌍', Nigérian:'🌍', Rwandais:'🌍', Togolais:'🌍',Portugais:'🇵🇹',Arménien:'🇦🇲',Géorgien:'🇬🇪',Ouzbek:'🇺🇿',
   Pakistanais:'🇵🇰',Bangladais:'🇧🇩',Népalais:'🇳🇵',Asiatique:'🌏',
-  Britannique:'🇬🇧',Allemand:'🇩🇪',Belge:'🇧🇪',Suisse:'🇨🇭',Polonais:'🇵🇱',
+  Britannique:'🇬🇧', Irlandais:'🇮🇪',Allemand:'🇩🇪',Belge:'🇧🇪',Suisse:'🇨🇭',Polonais:'🇵🇱',
   Russe:'🇷🇺',Indonésien:'🇮🇩',Malaisien:'🇲🇾',Philippin:'🇵🇭',
   'Fruits de mer':'🌊',Végétarien:'🌿',Végétalien:'🌱',
   International:'🌍',Fusion:'🍽️',Syrien:'🇸🇾','Non renseigné':'❓',
@@ -986,7 +973,7 @@ const COLORS = {
   Éthiopien:'#4e342e',Sénégalais:'#2e7d32',Africain:'#5d4037',Caribéen:'#00acc1',
   Portugais:'#1565c0',Arménien:'#6a1b9a',Géorgien:'#ad1457',Ouzbek:'#00838f',
   Pakistanais:'#33691e',Bangladais:'#388e3c',Népalais:'#558b2f',Asiatique:'#00796b',
-  Britannique:'#1a237e',Allemand:'#455a64',Belge:'#f57f17',Suisse:'#b71c1c',
+  Britannique:'#1a237e', Irlandais:'#169b62',Allemand:'#455a64',Belge:'#f57f17',Suisse:'#b71c1c',
   Polonais:'#880e4f',Russe:'#37474f','Fruits de mer':'#0277bd',
   Végétarien:'#2e7d32',Végétalien:'#33691e',International:'#78909c',Fusion:'#9e9e9e',
   Syrien:'#1b5e20',
@@ -1082,14 +1069,11 @@ async function fetchOverpass() {
   setProgress(12, 'Envoi de la requête Overpass…');
   const amenities = ["restaurant","fast_food","cafe","bar","pub","food_court"];
   const bbox = "(45.68,4.75,45.84,4.92)";
-  // Une seule requête sans filtre cuisine — on trie côté client, plus rapide côté serveur
   const lines = amenities.flatMap(a => [
     `node["amenity"="${a}"]["name"]${bbox};`,
     `way["amenity"="${a}"]["name"]${bbox};`,
   ]).join('\n  ');
-  // out center qt : qt = quick sort (serveur trie les résultats, plus rapide)
-  // body = tags complets, center = centroïde des ways
-  const query = `[out:json][timeout:60];\n(\n  ${lines}\n);\nout center qt;`;
+  const query = `[out:json][timeout:60];\n(\n  ${lines}\n);\nout center qt tags;`;
 
   let lastErr;
   for (const ep of OVERPASS_MIRRORS) {
@@ -1168,7 +1152,7 @@ function resolveNat(rawCuisine, name) {
     if (raw.endsWith('ese')) stems.push(raw.slice(0,-3));
     if (raw.endsWith('ian')) stems.push(raw.slice(0,-3));
     if (raw.endsWith('an'))  stems.push(raw.slice(0,-2));
-    if (raw.endsWith('ish')) stems.push(raw.slice(0,-3));
+    if (raw.endsWith('ish') && raw.length > 6) stems.push(raw.slice(0,-3)); // "irish"(5) skipped, "swedish"(7) ok
     for (const stem of stems) {
       for (const [key, val] of Object.entries(CM)) {
         if (key.length < 4) continue;
@@ -1210,6 +1194,13 @@ function parseElements(els) {
     if (seen.has(key)) continue;
     seen.add(key);
 
+    // Détecter vegan/végétarien via diet:* (indépendant de la nationalité)
+    const isVegan = t['diet:vegan'] === 'yes' || t['diet:vegan'] === 'only'
+      || t['diet:vegan'] === 'only' || (t.cuisine||'').includes('vegan');
+    const isVegetarian = isVegan
+      || t['diet:vegetarian'] === 'yes' || t['diet:vegetarian'] === 'only'
+      || (t.cuisine||'').includes('vegetarian');
+
     // Resolve nationality — if no cuisine tag, try from name only
     let nat, iso;
     if (t.cuisine) {
@@ -1219,11 +1210,19 @@ function parseElements(els) {
       if (nameGuess) { [nat, iso] = nameGuess; }
       else { nat = 'Non renseigné'; iso = null; }
     }
+    // Si le tag cuisine est purement vegan/végétarien sans nationalité associée,
+    // garder Végétarien/Végétalien comme nat. Sinon garder la nationalité.
+    if (isVegan && (nat === 'Non renseigné' || nat === 'International')) {
+      nat = 'Végétalien'; iso = null;
+    } else if (isVegetarian && (nat === 'Non renseigné' || nat === 'International')) {
+      nat = 'Végétarien'; iso = null;
+    }
     const addr = [t['addr:housenumber'],t['addr:street']].filter(Boolean).join(' ')
       ||t['addr:full']||'';
     const city = t['addr:postcode']||'';
     out.push({
       id:el.id, name:t.name, nat, iso,
+      isVegan, isVegetarian,
       flag:FLAG_EMOJI[nat]||'🍽️',
       emoji:EMOJI[nat]||'🍽️',
       color:COLORS[nat]||COLORS.default,
@@ -1248,6 +1247,13 @@ function buildCounts() {
   allRestaurants.forEach(r => {
     natCounts[r.nat] = (natCounts[r.nat]||0)+1;
     if (r.iso) isoCounts[r.iso] = (isoCounts[r.iso]||0)+1;
+    // Compter aussi dans Végétarien/Végétalien si diet:* renseigné
+    // (même si le resto a une nationalité propre)
+    if (r.isVegan && r.nat !== 'Végétalien') {
+      natCounts['Végétalien'] = (natCounts['Végétalien']||0)+1;
+    } else if (r.isVegetarian && r.nat !== 'Végétarien' && r.nat !== 'Végétalien') {
+      natCounts['Végétarien'] = (natCounts['Végétarien']||0)+1;
+    }
   });
 }
 
@@ -1515,7 +1521,11 @@ function applyFilters() {
   const q = document.getElementById('searchInput').value.toLowerCase().trim();
   const sort = document.getElementById('sortSel').value;
   let list = allRestaurants.filter(r => {
-    const mN = !selectedNat || r.nat === selectedNat;
+    // Pour Végétarien/Végétalien : inclure aussi les restos avec diet:* même nationalité différente
+    let mN;
+    if (selectedNat === 'Végétalien') mN = r.nat === 'Végétalien' || r.isVegan;
+    else if (selectedNat === 'Végétarien') mN = r.nat === 'Végétarien' || r.nat === 'Végétalien' || r.isVegetarian;
+    else mN = !selectedNat || r.nat === selectedNat;
     const mQ = !q || r.name.toLowerCase().includes(q)
       || r.address.toLowerCase().includes(q)
       || r.nat.toLowerCase().includes(q)
@@ -1541,13 +1551,12 @@ function renderList(list) {
       <div class="state-sub">Essayez une autre nationalité ou modifiez votre recherche.</div>
     </div>`; return;
   }
-  const AD_CARD = `<div class="card" style="cursor:default;overflow:hidden;">
+  const AD_CARD = `<div class="card" style="cursor:default;overflow:hidden;min-height:160px;background:var(--surface);">
     <ins class="adsbygoogle"
-      style="display:block;width:100%;min-height:74px;"
+      style="display:block;width:100%;height:160px;"
       data-ad-client="ca-pub-5563397793004019"
       data-ad-slot="auto"
-      data-ad-format="fluid"
-      data-ad-layout="in-article"></ins>
+      data-ad-format="rectangle"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
   </div>`;
 
@@ -1559,7 +1568,13 @@ function renderList(list) {
     const natEncoded = x(r.nat);
     return `<div class="card" onclick="openModal(${r.id})">
       <div class="card-main">
-        <div class="card-ico">${r.emoji}</div>
+        <div class="card-ico" style="font-size:2rem;">${(() => {
+          const noFlag = new Set(['Non renseigné','International','Fusion',
+            'Végétarien','Végétalien','Fruits de mer',
+            'Asiatique 🌏','Africain 🌍','Latino 🌎','Caribéen 🌴',
+            'Méditerranéen 🌊','Europe Est 🏛','Moyen-Orient ☪️']);
+          return noFlag.has(r.nat) ? r.emoji : (r.flag||r.emoji);
+        })()}</div>
         <div class="card-body">
           <div class="card-name">${x(r.name)}</div>
           <div class="card-tags">
