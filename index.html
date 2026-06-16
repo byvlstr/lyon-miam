@@ -536,13 +536,25 @@ header{display:flex;align-items:center;justify-content:space-between;
       libanaise, marocaine, vietnamienne, thaïlandaise, indienne, chinoise, turque et mexicaine. 
       La ville compte également des restaurants éthiopiens, coréens, péruviens, brésiliens et bien d'autres nationalités.
     </p>
-    <div style="text-align:center;margin-top:32px;">
+    <h3 style="font-family:'Quicksand',sans-serif;font-size:1.1rem;color:#142752;margin:0 0 8px;">
+      Informations sur les données OpenStreetMap
+    </h3>
+    <p style="color:#7a756e;font-size:.9rem;line-height:1.7;margin-bottom:20px;">
+      Les données utilisées pour les restaurants sont celles d'<strong style="color:#142752">OpenStreetMap</strong>. 
+      Il est possible que des restaurants ne soient pas à jour, ou pas catégorisés correctement. 
+      Il est possible de <a href="https://www.openstreetmap.org/user/new" target="_blank" style="color:#c0392b;text-decoration:none;">devenir contributeur OSM</a>, 
+      et des corrections seront effectuées au fur et à mesure.
+    </p>
+    <div style="text-align:center;margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:12px;">
       <button onclick="enterApp()" style="
         background:#c0392b;color:#fff;border:none;border-radius:50px;
         padding:13px 32px;font-family:'Quicksand',sans-serif;
         font-size:.9rem;font-weight:600;cursor:pointer;
         box-shadow:0 4px 16px rgba(192,57,43,.3);
       ">Explorer la carte →</button>
+      <a href="privacy-policy.html" style="font-size:.75rem;color:#a09b93;text-decoration:none;">
+        Politique de confidentialité
+      </a>
     </div>
   </div>
 </div>
@@ -722,7 +734,7 @@ const CM = {
   // Mexican
   mexican:['Mexicain','MX'], tex_mex:['Mexicain','MX'],
   // Spanish
-  spanish:['Espagnol','ES'], tapas:['Espagnol','ES'], catalan:['Espagnol','ES'],
+  spanish:['Espagnol','ES'], catalan:['Espagnol','ES'],
   // Greek
   greek:['Grec','GR'],
   // Turkish
@@ -911,7 +923,7 @@ const NAME_HINTS = [
   [/\b(cuba|cubain|havane|havana)\b/i, ['Cubain','CU']],
   [/\b(rwanda|kigali|rwandais)\b/i, ['Rwandais','RW']],
   [/\b(pizza|trattoria|osteria|ristorante|pasta|itali)\b/i, ['Italien','IT']],
-  [/\b(tapas|paella|spain|espagne|espagnol|madrid|barcelona)\b/i, ['Espagnol','ES']],
+  [/\b(paella|spain|espagne|espagnol|madrid|barcelona)\b/i, ['Espagnol','ES']],
   [/\b(grec|greece|greek|gyros|souvlaki|athene|athen)\b/i, ['Grec','GR']],
   [/\b(turk|kebab|doner|istanbul|ankara)\b/i, ['Turc','TR']],
   [/\b(mexic|taco|burrito|guacamole|enchilada|nacho)\b/i, ['Mexicain','MX']],
@@ -1569,13 +1581,18 @@ function renderList(list) {
       <div class="state-sub">Essayez une autre nationalité ou modifiez votre recherche.</div>
     </div>`; return;
   }
-  const AD_CARD = `<div class="card" style="cursor:default;overflow:hidden;min-height:160px;background:var(--surface);">
-    <ins class="adsbygoogle"
-      style="display:block;width:100%;height:160px;"
-      data-ad-client="ca-pub-5563397793004019"
-      data-ad-slot="auto"
-      data-ad-format="rectangle"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+  const AD_CARD = `<div class="card" style="
+    cursor:default;overflow:hidden;min-height:120px;
+    background:#f2f0ed;border:1px solid #e4e1db;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px 24px;text-align:center;
+  ">
+    <div>
+      <div style="font-size:1.1rem;margin-bottom:6px;">🍜 🍣 🌮 🫕 🍛</div>
+      <div style="font-family:'Quicksand',sans-serif;font-size:.85rem;font-weight:600;color:#142752;line-height:1.4;">
+        Des milliers de restaurants à Lyon<br>avec plus de 50 nationalités
+      </div>
+    </div>
   </div>`;
 
   const cards = list.map(r => {
