@@ -1119,8 +1119,11 @@ async function fetchOverpass() {
       const r = await fetch(ep, {
         method:'POST',
         body:'data='+encodeURIComponent(query),
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      });
+        headers:{
+          'Content-Type':'application/x-www-form-urlencoded',
+          'User-Agent':'LyonMiam/1.0 (https://lyon-miam.com; contact@lyon-miam.com)',
+          'Referer':'https://lyon-miam.com',
+},      });
       if (!r.ok) throw new Error('HTTP '+r.status);
       setProgress(60, 'Traitement des données…');
       const d = await r.json();
